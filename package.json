@@ -1,11 +1,8 @@
 {
   "name": "express-respond",
   "version": "0.1.0",
-  "description": "A quick-use and minimal response utility for several status codes",
+  "description": "A quick-use and minimal response utility for all status codes",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Oğuzhan Kalkuz",
   "license": "MIT",
   "devDependencies": {
@@ -14,7 +11,6 @@
     "eslint-plugin-import": "^2.25.2"
   },
   "dependencies": {
-    "esm": "^3.2.25",
     "express": "^4.18.2"
   }
 }
