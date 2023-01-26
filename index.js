@@ -47,7 +47,6 @@ function OK(res, data, message) {
     ...(Array.isArray(data) ? { count: data.length } : null),
     data,
     message,
-    total,
   };
 
   return res.status(200).json(response);
@@ -254,7 +253,10 @@ function PermanentRedirect(res, data, message) {
  * or deceptive request routing).
  */
 function BadRequest(res, data, message) {
-
+  res.status(400).json({
+    data,
+    message,
+  });
 }
 
 /**
@@ -264,7 +266,10 @@ function BadRequest(res, data, message) {
  * "unauthenticated". That is, the client must authenticate itself to get the requested response.
  */
 function Unauthorized(res, data, message) {
-
+  res.status(401).json({
+    data,
+    message,
+  });
 }
 
 /**
@@ -286,7 +291,10 @@ function PaymentRequired(res, data, message) {
  * the client's identity is known to the server.
  */
 function Forbidden(res, data, message) {
-
+  res.status(403).json({
+    data,
+    message,
+  });
 }
 
 /**
@@ -299,7 +307,10 @@ function Forbidden(res, data, message) {
  * its frequent occurrence on the web.
  */
 function NotFound(res, data, message) {
-
+  res.status(404).json({
+    data,
+    message,
+  });
 }
 
 /**
@@ -559,7 +570,10 @@ function InternalServerError(res, data, message) {
  * must not return this code) are GET and HEAD.
  */
 function NotImplemented(res, data, message) {
-
+  res.status(501).json({
+    data,
+    message,
+  });
 }
 
 /**
