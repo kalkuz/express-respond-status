@@ -18,3 +18,5 @@ jobs:
           node-version: 16
       - run: yarn install --frozen-lockfile
       - uses: luvies/action-yarn-publish@v0.1.1
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
