@@ -1,5 +1,5 @@
 {
-  "name": "express-respond-status",
+  "name": "@kalkuz/express-respond-status",
   "version": "0.1.2",
   "description": "A quick-use and minimal response utility for all status codes",
   "main": "index.js",
