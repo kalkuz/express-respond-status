@@ -1,6 +1,6 @@
 {
   "name": "@kalkuz/express-respond-status",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A quick-use and minimal response utility for all status codes",
   "main": "index.js",
   "author": "Oğuzhan Kalkuz",
