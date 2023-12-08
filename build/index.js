@@ -1,17 +1,13 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
 function Respond(res, status, json) {
-  if (json) {
-    res.status(status).json(json);
-  } else {
-    res.status(status);
-  }
+    if (json != null) {
+        res.status(status).json(json);
+    }
+    else {
+        res.status(status);
+    }
 }
-
 /**
  * HTTP 101 - Continue
  *
@@ -19,12 +15,13 @@ function Respond(res, status, json) {
  * the request or ignore the response if the request is already finished.
  */
 function Continue(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 101, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 101, response);
 }
-
 /**
  * HTTP 102 - Switching Protocols
  *
@@ -32,12 +29,13 @@ function Continue(res, data, message) {
  * from the client and indicates the protocol the server is switching to.
  */
 function SwitchingProtocols(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 402, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 402, response);
 }
-
 /**
  * HTTP 103 - Processing
  *
@@ -45,12 +43,13 @@ function SwitchingProtocols(res, data, message) {
  * processing the request, but no response is available yet.
  */
 function Processing(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 103, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 103, response);
 }
-
 /**
  * HTTP 104 - Early Hints
  *
@@ -58,28 +57,23 @@ function Processing(res, data, message) {
  * letting the user agent start preloading resources while the server prepares a response.
  */
 function EarlyHints(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 104, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 104, response);
 }
-
 /**
  * HTTP 200 - OK
  *
  * The request succeeded.
  */
 function OK(res, data, message) {
-  const response = {
-    ...(Array.isArray(data) ? {
-      count: data.length
-    } : null),
-    data,
-    message
-  };
-  Respond(res, 200, response);
+    const response = Object.assign(Object.assign({}, (Array.isArray(data) ? { count: data.length } : null)), { data,
+        message });
+    Respond(res, 200, response);
 }
-
 /**
  * HTTP 201 - Created
  *
@@ -87,12 +81,13 @@ function OK(res, data, message) {
  * typically the response sent after POST requests, or some PUT requests.
  */
 function Created(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 201, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 201, response);
 }
-
 /**
  * HTTP 202 - Accepted
  *
@@ -102,12 +97,13 @@ function Created(res, data, message) {
  * server handles the request, or for batch processing.
  */
 function Accepted(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 202, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 202, response);
 }
-
 /**
  * HTTP 203 - Non-Authoritative Information
  *
@@ -117,12 +113,13 @@ function Accepted(res, data, message) {
  * specific case, the 200 OK response is preferred to this status.
  */
 function NonAuthoritativeInformation(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 203, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 203, response);
 }
-
 /**
  * HTTP 204 - No Content
  *
@@ -130,24 +127,26 @@ function NonAuthoritativeInformation(res, data, message) {
  * The user agent may update its cached headers for this resource with the new ones.
  */
 function NoContent(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 204, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 204, response);
 }
-
 /**
  * HTTP 205 - Reset Content
  *
  * Tells the user agent to reset the document which sent this request.
  */
 function ResetContent(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 205, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 205, response);
 }
-
 /**
  * HTTP 206 - Partial Content
  *
@@ -155,12 +154,13 @@ function ResetContent(res, data, message) {
  * client to request only part of a resource.
  */
 function PartialContent(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 206, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 206, response);
 }
-
 /**
  * HTTP 207 - Multi-Status
  *
@@ -168,12 +168,13 @@ function PartialContent(res, data, message) {
  * where multiple status codes might be appropriate.
  */
 function MultiStatus(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 207, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 207, response);
 }
-
 /**
  * HTTP 208 - Already Reported
  *
@@ -181,12 +182,13 @@ function MultiStatus(res, data, message) {
  * enumerating the internal members of multiple bindings to the same collection.
  */
 function AlreadyReported(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 208, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 208, response);
 }
-
 /**
  * HTTP 226 - IM Used
  *
@@ -195,12 +197,13 @@ function AlreadyReported(res, data, message) {
  * applied to the current instance.
  */
 function IMUsed(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 226, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 226, response);
 }
-
 /**
  * HTTP 300 - Multiple Choices
  *
@@ -209,12 +212,13 @@ function IMUsed(res, data, message) {
  * but HTML links to the possibilities are recommended so the user can pick.)
  */
 function MultipleChoices(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 300, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 300, response);
 }
-
 /**
  * HTTP 301 - Moved Permanently
  *
@@ -222,12 +226,13 @@ function MultipleChoices(res, data, message) {
  * The new URL is given in the response.
  */
 function MovedPermanently(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 301, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 301, response);
 }
-
 /**
  * HTTP 302 - Found
  *
@@ -236,12 +241,13 @@ function MovedPermanently(res, data, message) {
  * be used by the client in future requests.
  */
 function Found(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 302, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 302, response);
 }
-
 /**
  * HTTP 303 - See Other
  *
@@ -249,12 +255,13 @@ function Found(res, data, message) {
  * another URI with a GET request.
  */
 function SeeOther(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 303, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 303, response);
 }
-
 /**
  * HTTP 304 - Not Modified
  *
@@ -262,12 +269,13 @@ function SeeOther(res, data, message) {
  * modified, so the client can continue to use the same cached version of the response.
  */
 function NotModified(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 304, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 304, response);
 }
-
 /**
  * @deprecated
  * HTTP 305 - UseProxy
@@ -277,12 +285,13 @@ function NotModified(res, data, message) {
  * regarding in-band configuration of a proxy.
  */
 function UseProxy(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 305, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 305, response);
 }
-
 /**
  * HTTP 306 - Unused
  *
@@ -290,12 +299,13 @@ function UseProxy(res, data, message) {
  * version of the HTTP/1.1 specification.
  */
 function Unused(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 306, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 306, response);
 }
-
 /**
  * HTTP 307 - Temporary Redirect
  *
@@ -306,12 +316,13 @@ function Unused(res, data, message) {
  * a POST must be used in the second request.
  */
 function TemporaryRedirect(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 307, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 307, response);
 }
-
 /**
  * HTTP 308 - Permanent Redirect
  *
@@ -321,12 +332,13 @@ function TemporaryRedirect(res, data, message) {
  * used: if a POST was used in the first request, a POST must be used in the second request.
  */
 function PermanentRedirect(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 308, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 308, response);
 }
-
 /**
  * HTTP 400 - Bad Request
  *
@@ -335,12 +347,13 @@ function PermanentRedirect(res, data, message) {
  * or deceptive request routing).
  */
 function BadRequest(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 400, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 400, response);
 }
-
 /**
  * HTTP 401 - Unauthorized
  *
@@ -348,12 +361,13 @@ function BadRequest(res, data, message) {
  * "unauthenticated". That is, the client must authenticate itself to get the requested response.
  */
 function Unauthorized(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 401, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 401, response);
 }
-
 /**
  * HTTP 402 - Payment Required
  *
@@ -362,12 +376,13 @@ function Unauthorized(res, data, message) {
  * standard convention exists.
  */
 function PaymentRequired(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 402, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 402, response);
 }
-
 /**
  * HTTP 403 - Forbidden
  *
@@ -376,12 +391,13 @@ function PaymentRequired(res, data, message) {
  * the client's identity is known to the server.
  */
 function Forbidden(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 403, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 403, response);
 }
-
 /**
  * HTTP 404 - Not Found
  *
@@ -392,12 +408,13 @@ function Forbidden(res, data, message) {
  * its frequent occurrence on the web.
  */
 function NotFound(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 404, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 404, response);
 }
-
 /**
  * HTTP 405 - Method Not Allowed
  *
@@ -405,12 +422,13 @@ function NotFound(res, data, message) {
  * For example, an API may not allow calling DELETE to remove a resource.
  */
 function MethodNotAllowed(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 405, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 405, response);
 }
-
 /**
  * HTTP 406 - Not Acceptable
  *
@@ -418,24 +436,26 @@ function MethodNotAllowed(res, data, message) {
  * doesn't find any content that conforms to the criteria given by the user agent.
  */
 function NotAcceptable(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 406, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 406, response);
 }
-
 /**
  * HTTP 407 - Proxy Authentication Required
  *
  * This is similar to 401 Unauthorized but authentication is needed to be done by a proxy.
  */
 function ProxyAuthenticationRequired(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 407, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 407, response);
 }
-
 /**
  * HTTP 408 - Request Timeout
  *
@@ -446,24 +466,26 @@ function ProxyAuthenticationRequired(res, data, message) {
  * the connection without sending this message.
  */
 function RequestTimeout(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 408, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 408, response);
 }
-
 /**
  * HTTP 409 - Conflict
  *
  * This response is sent when a request conflicts with the current state of the server.
  */
 function Conflict(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 409, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 409, response);
 }
-
 /**
  * HTTP 410 - Gone
  *
@@ -474,12 +496,13 @@ function Conflict(res, data, message) {
  * been deleted with this status code.
  */
 function Gone(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 410, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 410, response);
 }
-
 /**
  * HTTP 411 - Length Required
  *
@@ -487,24 +510,26 @@ function Gone(res, data, message) {
  * field is not defined and the server requires it.
  */
 function LengthRequired(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 411, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 411, response);
 }
-
 /**
  * HTTP 412 - Precondition Failed
  *
  * The client has indicated preconditions in its headers which the server does not meet.
  */
 function PreconditionFailed(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 412, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 412, response);
 }
-
 /**
  * HTTP 413 - Payload Too Large
  *
@@ -512,24 +537,26 @@ function PreconditionFailed(res, data, message) {
  * connection or return an Retry-After header field.
  */
 function PayloadTooLarge(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 413, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 413, response);
 }
-
 /**
  * HTTP 414 - URI Too Long
  *
  * The URI requested by the client is longer than the server is willing to interpret.
  */
 function URITooLong(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 414, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 414, response);
 }
-
 /**
  * HTTP 415 - Unsupported Media Type
  *
@@ -537,12 +564,13 @@ function URITooLong(res, data, message) {
  * so the server is rejecting the request.
  */
 function UnsupportedMediaType(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 415, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 415, response);
 }
-
 /**
  * HTTP 416 - Range Not Satisfiable
  *
@@ -550,12 +578,13 @@ function UnsupportedMediaType(res, data, message) {
  * be fulfilled. It's possible that the range is outside the size of the target URI's data.
  */
 function RangeNotSatisfiable(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 416, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 416, response);
 }
-
 /**
  * HTTP 417 - Expectation Failed
  *
@@ -563,24 +592,26 @@ function RangeNotSatisfiable(res, data, message) {
  * request header field cannot be met by the server.
  */
 function ExpectationFailed(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 417, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 417, response);
 }
-
 /**
  * HTTP 418 - I'm a Teapot
  *
  * The server refuses the attempt to brew coffee with a teapot.
  */
 function ImATeapot(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 418, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 418, response);
 }
-
 /**
  * HTTP 421 - Misdirect Request
  *
@@ -589,60 +620,65 @@ function ImATeapot(res, data, message) {
  * the combination of scheme and authority that are included in the request URI.
  */
 function MisdirectRequest(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 421, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 421, response);
 }
-
 /**
  * HTTP 422 - Unprocessable Entity
  *
  * The request was well-formed but was unable to be followed due to semantic errors.
  */
 function UnprocessableEntity(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 422, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 422, response);
 }
-
 /**
  * HTTP 423 - Locked
  *
  * The resource that is being accessed is locked.
  */
 function Locked(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 423, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 423, response);
 }
-
 /**
  * HTTP 424 - Failed Dependency
  *
  * The request failed due to failure of a previous request.
  */
 function FailedDependency(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 424, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 424, response);
 }
-
 /**
  * HTTP 425 - Too Early
  *
  * Indicates that the server is unwilling to risk processing a request that might be replayed.
  */
 function TooEarly(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 425, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 425, response);
 }
-
 /**
  * HTTP 426 - Upgrade Required
  *
@@ -651,12 +687,13 @@ function TooEarly(res, data, message) {
  * header in a 426 response to indicate the required protocol(s).
  */
 function UpgradeRequired(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 426, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 426, response);
 }
-
 /**
  * HTTP 428 - Precondition Required
  *
@@ -666,24 +703,26 @@ function UpgradeRequired(res, data, message) {
  * the server, leading to a conflict.
  */
 function PreconditionRequired(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 428, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 428, response);
 }
-
 /**
  * HTTP 429 - Too Many Requests
  *
  * The user has sent too many requests in a given amount of time ("rate limiting").
  */
 function TooManyRequests(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 429, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 429, response);
 }
-
 /**
  * HTTP 431 - Request Header Fields Too Large
  *
@@ -691,12 +730,13 @@ function TooManyRequests(res, data, message) {
  * The request may be resubmitted after reducing the size of the request header fields.
  */
 function RequestHeaderFieldsTooLarge(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 431, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 431, response);
 }
-
 /**
  * HTTP 451 - Unavailable For Legal Reasons
  *
@@ -704,24 +744,26 @@ function RequestHeaderFieldsTooLarge(res, data, message) {
  * such as a web page censored by a government.
  */
 function UnavailableForLegalReasons(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 451, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 451, response);
 }
-
 /**
  * HTTP 500 - Internal Server Error
  *
  * The server has encountered a situation it does not know how to handle.
  */
 function InternalServerError(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 500, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 500, response);
 }
-
 /**
  * HTTP 501 - Not Implemented
  *
@@ -730,12 +772,13 @@ function InternalServerError(res, data, message) {
  * must not return this code) are GET and HEAD.
  */
 function NotImplemented(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 501, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 501, response);
 }
-
 /**
  * HTTP 502 - Bad Gateway
  *
@@ -743,12 +786,13 @@ function NotImplemented(res, data, message) {
  * get a response needed to handle the request, got an invalid response.
  */
 function BadGateway(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 502, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 502, response);
 }
-
 /**
  * HTTP 503 - Service Unavailable
  *
@@ -762,12 +806,13 @@ function BadGateway(res, data, message) {
  * not be cached.
  */
 function ServiceUnavailable(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 503, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 503, response);
 }
-
 /**
  * HTTP 504 - Gateway Timeout
  *
@@ -775,24 +820,26 @@ function ServiceUnavailable(res, data, message) {
  * get a response in time.
  */
 function GatewayTimeout(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 504, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 504, response);
 }
-
 /**
  * HTTP 505 - HTTP Version Not Supported
  *
  * The HTTP version used in the request is not supported by the server.
  */
 function HTTPVersionNotSupported(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 505, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 505, response);
 }
-
 /**
  * HTTP 506 - Variant Also Negotiates
  *
@@ -801,12 +848,13 @@ function HTTPVersionNotSupported(res, data, message) {
  * not a proper end point in the negotiation process.
  */
 function VariantAlsoNegotiates(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 506, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 506, response);
 }
-
 /**
  * HTTP 507 - Insufficient Storage
  *
@@ -814,176 +862,114 @@ function VariantAlsoNegotiates(res, data, message) {
  * store the representation needed to successfully complete the request.
  */
 function InsufficientStorage(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 507, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 507, response);
 }
-
 /**
  * HTTP 508 - Loop Detected
  *
  * The server detected an infinite loop while processing the request.
  */
 function LoopDetected(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 508, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 508, response);
 }
-
 /**
  * HTTP 510 - Not Extended
  *
  * Further extensions to the request are required for the server to fulfill it.
  */
 function NotExtended(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 510, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 510, response);
 }
-
 /**
  * HTTP 511 - NetworkAuthenticationRequired
  *
  * Indicates that the client needs to authenticate to gain network access.
  */
 function NetworkAuthenticationRequired(res, data, message) {
-  const response = {};
-  if (data) response.data = data;
-  if (message) response.message = message;
-  Respond(res, 511, response);
+    const response = {};
+    if (data != null)
+        response.data = data;
+    if (message != null)
+        response.message = message;
+    Respond(res, 511, response);
 }
-var _default = {
-  Continue,
-  // 100
-  SwitchingProtocols,
-  // 101
-  Processing,
-  // 102
-  EarlyHints,
-  // 103
-
-  OK,
-  // 200
-  Created,
-  // 201
-  Accepted,
-  // 202
-  NonAuthoritativeInformation,
-  // 203
-  NoContent,
-  // 204
-  ResetContent,
-  // 205
-  PartialContent,
-  // 206
-  MultiStatus,
-  // 207
-  AlreadyReported,
-  // 208
-  IMUsed,
-  // 226
-
-  MultipleChoices,
-  // 300
-  MovedPermanently,
-  // 301
-  Found,
-  // 302
-  SeeOther,
-  // 303
-  NotModified,
-  // 304
-  UseProxy,
-  // 305
-  Unused,
-  // 306
-  TemporaryRedirect,
-  // 307
-  PermanentRedirect,
-  // 308
-
-  BadRequest,
-  // 400
-  Unauthorized,
-  // 401
-  PaymentRequired,
-  // 402
-  Forbidden,
-  // 403
-  NotFound,
-  // 404
-  MethodNotAllowed,
-  // 405
-  NotAcceptable,
-  // 406
-  ProxyAuthenticationRequired,
-  // 407
-  RequestTimeout,
-  // 408
-  Conflict,
-  // 409
-  Gone,
-  // 410
-  LengthRequired,
-  // 411
-  PreconditionFailed,
-  // 412
-  PayloadTooLarge,
-  // 413
-  URITooLong,
-  // 414
-  UnsupportedMediaType,
-  // 415
-  RangeNotSatisfiable,
-  // 416
-  ExpectationFailed,
-  // 417
-  ImATeapot,
-  // 418
-  MisdirectRequest,
-  // 421
-  UnprocessableEntity,
-  // 422
-  Locked,
-  // 423
-  FailedDependency,
-  // 424
-  TooEarly,
-  // 425
-  UpgradeRequired,
-  // 426
-  PreconditionRequired,
-  // 428
-  TooManyRequests,
-  // 429
-  RequestHeaderFieldsTooLarge,
-  // 431
-  UnavailableForLegalReasons,
-  // 451
-
-  InternalServerError,
-  // 500
-  NotImplemented,
-  // 501
-  BadGateway,
-  // 502
-  ServiceUnavailable,
-  // 503
-  GatewayTimeout,
-  // 504
-  HTTPVersionNotSupported,
-  // 505
-  VariantAlsoNegotiates,
-  // 506
-  InsufficientStorage,
-  // 507
-  LoopDetected,
-  // 508
-  NotExtended,
-  // 510
-  NetworkAuthenticationRequired // 511
+exports.default = {
+    Continue, // 100
+    SwitchingProtocols, // 101
+    Processing, // 102
+    EarlyHints, // 103
+    OK, // 200
+    Created, // 201
+    Accepted, // 202
+    NonAuthoritativeInformation, // 203
+    NoContent, // 204
+    ResetContent, // 205
+    PartialContent, // 206
+    MultiStatus, // 207
+    AlreadyReported, // 208
+    IMUsed, // 226
+    MultipleChoices, // 300
+    MovedPermanently, // 301
+    Found, // 302
+    SeeOther, // 303
+    NotModified, // 304
+    UseProxy, // 305
+    Unused, // 306
+    TemporaryRedirect, // 307
+    PermanentRedirect, // 308
+    BadRequest, // 400
+    Unauthorized, // 401
+    PaymentRequired, // 402
+    Forbidden, // 403
+    NotFound, // 404
+    MethodNotAllowed, // 405
+    NotAcceptable, // 406
+    ProxyAuthenticationRequired, // 407
+    RequestTimeout, // 408
+    Conflict, // 409
+    Gone, // 410
+    LengthRequired, // 411
+    PreconditionFailed, // 412
+    PayloadTooLarge, // 413
+    URITooLong, // 414
+    UnsupportedMediaType, // 415
+    RangeNotSatisfiable, // 416
+    ExpectationFailed, // 417
+    ImATeapot, // 418
+    MisdirectRequest, // 421
+    UnprocessableEntity, // 422
+    Locked, // 423
+    FailedDependency, // 424
+    TooEarly, // 425
+    UpgradeRequired, // 426
+    PreconditionRequired, // 428
+    TooManyRequests, // 429
+    RequestHeaderFieldsTooLarge, // 431
+    UnavailableForLegalReasons, // 451
+    InternalServerError, // 500
+    NotImplemented, // 501
+    BadGateway, // 502
+    ServiceUnavailable, // 503
+    GatewayTimeout, // 504
+    HTTPVersionNotSupported, // 505
+    VariantAlsoNegotiates, // 506
+    InsufficientStorage, // 507
+    LoopDetected, // 508
+    NotExtended, // 510
+    NetworkAuthenticationRequired // 511
 };
-exports.default = _default;
